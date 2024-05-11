@@ -1,7 +1,6 @@
 import { Ies } from "@prisma/client";
 import { IesCriacaoDto, IesUpdateDto } from "../entity/Ies";
 import prisma from "../../../../config/database";
-import { UUID } from "crypto";
 
 //define o que ficará visível para o usuário
 //é uma declaração sem corpo
@@ -33,7 +32,7 @@ export class IesRepository implements IesRepositoryInterface {
 
     }
 
-    async buscarIesPorCodigo(codigo: UUID) : Promise<Ies | null> {
+    async buscarIesPorCodigo(codigo: string) : Promise<Ies | null> {
 
         try {
             
@@ -69,7 +68,7 @@ export class IesRepository implements IesRepositoryInterface {
 
     }
 
-    async alterarIes(codigo: UUID, ies: IesUpdateDto) : Promise<Ies> {
+    async alterarIes(codigo: string, ies: IesUpdateDto) : Promise<Ies> {
 
         try {
             
@@ -88,7 +87,7 @@ export class IesRepository implements IesRepositoryInterface {
 
     }
 
-    async deletarIes(codigo: UUID) : Promise<void> {
+    async deletarIes(codigo: string) : Promise<void> {
 
         try {
             
